@@ -25,7 +25,7 @@ class DoubanSpider(scrapy.Spider):
         for sel in response.xpath('//td[@class="title"]/a'):
             item = TenementItem()
             item['title'] = sel.xpath('./@title').extract_first()
-            item['href'] = sel.xpath('./@href').extract_first()
+            item['origin_href'] = sel.xpath('./@href').extract_first()
             item['price'] = 0
 
             if any(str_ in item['title'] for str_ in ("2室", "两室", "三室", "3室")):

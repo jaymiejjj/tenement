@@ -7,9 +7,18 @@
 
 import scrapy
 
-
 class TenementItem(scrapy.Item):
     # define the fields for your item here like:
     title = scrapy.Field()
     price = scrapy.Field()
-    href = scrapy.Field()
+    location = scrapy.Field()
+    origin_href = scrapy.Field()
+    origin = scrapy.Field()
+    origin_id = scrapy.Field()
+    create_at = scrapy.Field()
+    update_at = scrapy.Field()
+    oringin_images_urls = scrapy.Field()
+    local_image_paths = scrapy.Field()
+
+
+

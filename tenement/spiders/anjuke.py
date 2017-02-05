@@ -17,12 +17,12 @@ class AnjukeSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        res = json.loads(response.body)
+        res = json.loads(response.text)
 
         for info in res['datas']['list_info']:
             item = TenementItem()
             item['title'] = info['title']
-            item['href'] = info['prop_url']
+            item['origin_href'] = info['prop_url']
             item['price'] = info['price']
 
             yield item

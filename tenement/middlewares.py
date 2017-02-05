@@ -6,7 +6,20 @@
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+import random
+import base64
 
+
+class RandomUserAgent(object):
+    def __init__(self, agents):
+        self.agents = agents
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(crawler.settings.getlist('USER_AGENTS'))
+
+    def process_request(self, request, spider):
+        request.headers.setdefault('User-Agent', random.choice(self.agents))
 
 class TenementSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -19,6 +32,7 @@ class TenementSpiderMiddleware(object):
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
+
 
     def process_spider_input(response, spider):
         # Called for each response that goes through the spider

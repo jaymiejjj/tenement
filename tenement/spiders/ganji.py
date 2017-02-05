@@ -16,6 +16,6 @@ class GanjiSpider(scrapy.Spider):
         for sel in response.xpath('//div[@class="list-items"]'):
             item = TenementItem()
             item['title'] = sel.xpath('.//div[1]/text()').extract_first().strip()
-            item['href'] = 'http://3g.ganji.com' + sel.xpath('./a/@href').extract_first().split('?', 1)[0]
+            item['origin_href'] = 'http://3g.ganji.com' + sel.xpath('./a/@href').extract_first().split('?', 1)[0]
             item['price'] = sel.xpath('.//div[5]/text()').re(r'\d+')[0]
             yield item

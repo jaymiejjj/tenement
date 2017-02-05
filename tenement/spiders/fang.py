@@ -16,7 +16,7 @@ class FangSpider(scrapy.Spider):
         for sel in response.xpath('//li/a'):
             item = TenementItem()
             item['title'] = sel.xpath('./div[@class="txt"]/h3/text()').extract_first().strip()
-            item['href'] = 'http:' + sel.xpath('./@href').extract_first()
+            item['origin_href'] = 'http:' + sel.xpath('./@href').extract_first()
             item['price'] = sel.xpath('./div[@class="txt"]/p[1]/span/text()').re(r'\d+')[0]
 
             yield item

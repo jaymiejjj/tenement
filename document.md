@@ -28,8 +28,8 @@
 * title: 字符串，房源标题
 * images: 字符串数组，房源图片
 * location: 地理位置，经纬度？
-* ?
-* ?
+* house_model: 户型
+* rent_mode: 整租/合租
 * origin_href: 源链接
 * origin: 源
 * origin_id: 源 id
@@ -39,7 +39,19 @@
 需要的字段：房源标题，房源图片，房源地理位置，房源户型，整租/合租，房源链接，所属小区，房源来源网站，唯一表示 id 等 
 
 ### 任务
-- [ ] requirements.txt 文件整理
-- [ ] items.py 字段设计
-- [ ] pipelines.py 将 item 导入数据库
+- [x] requirements.txt 文件整理
+- [x] items.py 字段设计
+- [x] pipelines.py 将 item 导入数据库
+
+### 更新日志
+1. 为了加强反爬能力,新增RandomUserAgent,每次请求会随机使用一个User-Agent
+2. items字段设计完毕,update_at字段还没应用进去
+3. 新增TenementImgPipeline,用于抓取网络图片资源
+4. 新增TenementMongoPipeline,将抓取的数据存入mongodb中,暂时使用localhost
+5. 新增requirements.txt
+6. 目前只完善了LianjiaSpider
+
+### 存在的问题
+由于设置了延迟,爬虫效率还是很低下,而且很容易被封ip,后续需要使用代理池
+
 
