@@ -7,7 +7,6 @@
 
 from scrapy import signals
 import random
-import base64
 
 
 class RandomUserAgent(object):

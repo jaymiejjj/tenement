@@ -28,8 +28,8 @@
 * title: 字符串，房源标题
 * images: 字符串数组，房源图片
 * location: 地理位置，经纬度？
-* house_model: 户型
-* rent_mode: 整租/合租
+* house_type: 户型
+* rent_type: 整租/合租
 * origin_href: 源链接
 * origin: 源
 * origin_id: 源 id
@@ -44,14 +44,14 @@
 - [x] pipelines.py 将 item 导入数据库
 
 ### 更新日志
-1. 为了加强反爬能力,新增RandomUserAgent,每次请求会随机使用一个User-Agent
-2. items字段设计完毕,update_at字段还没应用进去
-3. 新增TenementImgPipeline,用于抓取网络图片资源
-4. 新增TenementMongoPipeline,将抓取的数据存入mongodb中,暂时使用localhost
-5. 新增requirements.txt
-6. 目前只完善了LianjiaSpider
+1. 为了加强反爬能力,新增 RandomUserAgent 每次请求会随机使用一个 User-Agent
+2. items 字段设计完毕 update_at 字段还没应用进去
+3. 新增 TenementImgPipeline,用于抓取网络图片资源
+4. 新增 TenementMongoPipeline,将抓取的数据存入 mongodb 中,暂时使用 localhost
+5. 新增 requirements.txt
+6. 目前只完善了 LianjiaSpider
 
 ### 存在的问题
-由于设置了延迟,爬虫效率还是很低下,而且很容易被封ip,后续需要使用代理池
+由于设置了延迟,爬虫效率还是很低下,而且很容易被封 ip,后续需要使用代理池
 
 

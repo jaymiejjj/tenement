@@ -85,7 +85,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 MONGO_URI = 'localhost'
-MONGO_DATABASE = 'Scrapydb'
+MONGO_DATABASE = 'tenementdb'
 
 ITEM_PIPELINES = {
     'tenement.pipelines.TenementImgPipeline': 300,
